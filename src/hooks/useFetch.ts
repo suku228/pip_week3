@@ -26,15 +26,15 @@ export const useFetch = (url: string): FetchData => {
         });
 
         setData(data);
+        setLoading(false);
       } catch (error) {
         if (error instanceof Error && error?.name === "AbortError") {
           setError(new Error("jkh"));
           return;
         } else {
+          setLoading(false);
           setError(error as Error);
         }
-      } finally {
-        setLoading(false);
       }
     };
 

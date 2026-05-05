@@ -8,10 +8,11 @@ import Dashboard from "./components/Dashboard";
 import UserForm from "./components/UserForm";
 import UserData from "./components/UserData";
 import SensitiveData from "./components/SensitiveData";
+import { USER_URL } from "./constant";
 
 function App() {
   const dispatch = useAppDispatch();
-  const { data } = useFetch("https://jsonplaceholder.typicode.com/posts");
+  const { data } = useFetch(USER_URL);
 
   useEffect(() => {
     if (data) {
@@ -19,7 +20,7 @@ function App() {
     }
   }, [data]);
 
-  const [route, setRoute] = useState("dashboard");
+  const [route, setRoute] = useState("userData");
 
   const renderPage = () => {
     switch (route) {

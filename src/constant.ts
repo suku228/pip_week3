@@ -17,3 +17,5 @@ export const USER_EDIT_PERMISSIONS = ["edit_prices"];
 export const ADMIN_PERMISSIONS = ["view_reports", "edit_prices", "export_data" ];
 
 export const SENSITIVE_DATA_FIELDS = ["salary", "email", "contact"];
+
+export const USER_URL = "https://jsonplaceholder.typicode.com/posts";
