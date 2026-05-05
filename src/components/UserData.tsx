@@ -1,14 +1,24 @@
 import { ROUTE_PERMISSIONS } from "../constant";
+import { exportToCSV } from "../helpers/exportToCsv";
 import type { IWithAccess } from "../types/UserRoleAndPermission";
 import { SecurityWrapper } from "./SecurityWrapper";
 import "./styles/userData.css";
 
 const UserData = (props: IWithAccess) => {
   const { users, hasAdminAccess } = props;
- const mask = (value: string | number) => (hasAdminAccess ? value : "****");
+  const mask = (value: string | number) => (hasAdminAccess ? value : "****");
+
+  const onClickDownload = () => {
+    exportToCSV(users, "userlist");
+  };
   return (
     <>
-      {hasAdminAccess && <button className="export-data"> export data</button>}
+      {hasAdminAccess && (
+        <button className="export-data" onClick={onClickDownload}>
+          {" "}
+          export data
+        </button>
+      )}
       <div className="user-table-wrapper">
         <h2 className="user-table__title">Users</h2>
         <table className="user-table">

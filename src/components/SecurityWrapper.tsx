@@ -1,10 +1,8 @@
-import React, { useMemo, type ComponentType } from "react";
+import React, { type ComponentType } from "react";
 import { useAppSelector } from "../store/redux-hooks";
 import "./styles/securityWrapper.css";
 import { ADMIN_PERMISSIONS, USER_EDIT_PERMISSIONS } from "../constant";
 import type { IWithAccess } from "../types/UserRoleAndPermission";
-import { getMaskedData } from "../helpers/maskedData";
-import type { IUser } from "../types/IUser";
 
 export const SecurityWrapper = <P extends object>(
   OriginalComponent: ComponentType<P & IWithAccess>,
@@ -12,7 +10,9 @@ export const SecurityWrapper = <P extends object>(
   requiredRole: string = "",
 ) => {
   const WrappedComponent = (props: P) => {
-    const { permissions, users } = useAppSelector((state) => state.user);
+    const { user, userList } = useAppSelector((state) => state);
+    const { permissions } = user;
+    const { users } = userList;
 
     const hasAccess = requiredPermissions.every((perm) =>
       permissions.includes(perm),
