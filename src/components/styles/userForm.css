@@ -1,0 +1,20 @@
+.dashboard__grid_userform {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dashboard__grid_userform .dashboard__grid__item__userform {
+  flex: 1 1 200px;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.edit-access-denied
+  .dashboard__grid_userform
+  .dashboard__grid__item__userform
+  .user_input {
+  pointer-events: none;
+  background-color: #f3f0ec;
+}

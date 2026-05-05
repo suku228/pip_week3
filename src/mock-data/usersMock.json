@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "name":"user1",
+        "salary":100000,
+        "contact": 9879879798,
+        "email": "1@gmail.com"
+    },
+    {
+        "id": "2",
+        "name":"user2",
+        "salary":200000,
+        "contact": 98798797982,
+        "email": "2@gmail.com"
+    },
+    {
+        "id": "3",
+        "name":"user3",
+        "salary":300000,
+        "contact": 98798797983,
+        "email": "3@gmail.com"
+    }
+]

@@ -1,0 +1,43 @@
+.user-table-wrapper {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.export-data{
+    float: right;
+}
+.user-table__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #28251d;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.user-table thead tr {
+  border: 1px solid #d4d1ca;
+}
+
+.user-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  border-right: 1px solid #d4d1ca;
+}
+
+.user-table td {
+  padding: 12px 16px;
+  color: #28251d;
+  border: 1px solid #dcd9d5;
+}
+

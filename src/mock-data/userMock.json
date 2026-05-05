@@ -1,0 +1,4 @@
+{
+    "permissions":["view_reports", "edit_prices", "export_data"],
+    "role": ""
+}

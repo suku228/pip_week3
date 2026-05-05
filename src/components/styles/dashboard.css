@@ -1,0 +1,15 @@
+.dashboard__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dashboard__grid__item {
+  flex: 1 1 200px; 
+  padding: 20px;
+  background: #f9f8f5;
+  border: 1px solid #d4d1ca;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #28251d;
+}
