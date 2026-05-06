@@ -14,9 +14,9 @@ export const useFetch = (url: string): FetchData => {
   useEffect(() => {
     const controller = new AbortController();
     const { signal } = controller;
-    setLoading(true);
-    setError(null);
     const fetchData = async () => {
+        setLoading(true);
+        setError(null);
       try {
         await fetch(url, { signal });
         const data: UserRoleAndPermission = await new Promise((resolve) => {
