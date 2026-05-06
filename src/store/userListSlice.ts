@@ -9,12 +9,12 @@ export const userListSlice = createSlice({
     users: userList as IUser[]
   },
   reducers: {
-    setUser: (state, action: PayloadAction<{users: IUser[]}>) => {
+    setUsers: (state, action: PayloadAction<{users: IUser[]}>) => {
       state.users = action.payload.users;
     }
   },
 });
 
 
-export const { setUser } = userListSlice.actions;
+export const { setUsers } = userListSlice.actions;
 export default userListSlice.reducer;

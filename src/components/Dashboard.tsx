@@ -18,6 +18,5 @@ const Dashboard = () => {
 const SecurityWrapperForm = SecurityWrapper(
   Dashboard,
   ROUTE_PERMISSIONS.dashboard,
-  "",
 );
 export default SecurityWrapperForm;

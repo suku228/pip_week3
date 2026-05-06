@@ -1,21 +1,21 @@
 import { ROUTE_PERMISSIONS } from "../constant";
 import { exportToCSV } from "../helpers/exportToCsv";
+import type { IUser } from "../types/IUser";
 import type { IWithAccess } from "../types/UserRoleAndPermission";
 import { SecurityWrapper } from "./SecurityWrapper";
 import "./styles/userData.css";
 
-const UserData = (props: IWithAccess) => {
+const UserData = (props: Partial<IWithAccess>) => {
   const { users, hasAdminAccess } = props;
   const mask = (value: string | number) => (hasAdminAccess ? value : "****");
 
   const onClickDownload = () => {
-    exportToCSV(users, "userlist");
+    exportToCSV(users as IUser[], "userlist");
   };
   return (
     <>
       {hasAdminAccess && (
         <button className="export-data" onClick={onClickDownload}>
-          {" "}
           export data
         </button>
       )}
@@ -32,7 +32,7 @@ const UserData = (props: IWithAccess) => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
+            {users?.map((user) => (
               <tr key={user.id}>
                 <td>{user.id}</td>
                 <td>{user.name}</td>
@@ -51,6 +51,5 @@ const UserData = (props: IWithAccess) => {
 const SecurityWrapperForm = SecurityWrapper(
   UserData,
   ROUTE_PERMISSIONS.userData,
-  "",
 );
 export default SecurityWrapperForm;

@@ -9,5 +9,5 @@ const SensitiveData = () => {
   );
 };
 
-const SecurityWrapperForm = SecurityWrapper(SensitiveData, ROUTE_PERMISSIONS.superAdmin, "");
+const SecurityWrapperForm = SecurityWrapper(SensitiveData, ROUTE_PERMISSIONS.superAdmin);
 export default SecurityWrapperForm;

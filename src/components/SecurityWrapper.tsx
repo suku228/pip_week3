@@ -5,14 +5,13 @@ import { ADMIN_PERMISSIONS, USER_EDIT_PERMISSIONS } from "../constant";
 import type { IWithAccess } from "../types/UserRoleAndPermission";
 
 export const SecurityWrapper = <P extends object>(
-  OriginalComponent: ComponentType<P & IWithAccess>,
+  OriginalComponent: ComponentType<P & Partial<IWithAccess>>,
   requiredPermissions: string[] = [],
-  requiredRole: string = "",
+//   requiredRole: string = "",
 ) => {
   const WrappedComponent = (props: P) => {
-    const { user, userList } = useAppSelector((state) => state);
-    const { permissions } = user;
-    const { users } = userList;
+    const { permissions } = useAppSelector((state) => state.user);
+    const { users } = useAppSelector((state) => state.userList);
 
     const hasAccess = requiredPermissions.every((perm) =>
       permissions.includes(perm),
@@ -34,15 +33,19 @@ export const SecurityWrapper = <P extends object>(
       return <div className="access-denied">🔒 access denied</div>;
     }
 
+    const injectedProps: IWithAccess = {
+       hasAdminAccess,
+        hasEditAccess,
+        users
+    }
+
     return (
       <div
         className={`security-wrapper ${hasEditAccess ? "" : "edit-access-denied"}`}
       >
         <OriginalComponent
-          {...props}
-          hasAdminAccess={hasAdminAccess}
-          hasEditAccess={hasEditAccess}
-          users={users}
+          {...(props as P)}
+          {...injectedProps}
         />
       </div>
     );

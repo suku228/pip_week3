@@ -3,7 +3,7 @@ import type { IWithAccess } from "../types/UserRoleAndPermission";
 import { SecurityWrapper } from "./SecurityWrapper";
 import "./styles/userForm.css";
 
-const UserForm = (props: IWithAccess) => {
+const UserForm = (props: Partial<IWithAccess>) => {
   const {hasEditAccess} = props;
   return (
     <>
@@ -17,5 +17,5 @@ const UserForm = (props: IWithAccess) => {
   );
 };
 
-const SecurityWrapperForm = SecurityWrapper(UserForm, ROUTE_PERMISSIONS.userForm, "");
+const SecurityWrapperForm = SecurityWrapper(UserForm, ROUTE_PERMISSIONS.userForm);
 export default SecurityWrapperForm;
